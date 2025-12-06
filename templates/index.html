@@ -13,7 +13,7 @@
     }
     h1 {
       text-align: center;
-      color: #007acc; /* VS Code blue */
+      color: #007acc;
     }
     table {
       width: 80%;
@@ -35,14 +35,13 @@
       background-color: #f9f9f9;
     }
     .topper {
-      background-color: #d1ffd6; /* highlight topper row */
+      background-color: #d1ffd6;
       font-weight: bold;
     }
   </style>
 </head>
 <body>
   <h1>Class Topper Test Details</h1>
-  
   <table>
     <tr>
       <th>Student Name</th>
@@ -50,30 +49,14 @@
       <th>Marks</th>
       <th>Status</th>
     </tr>
+    {% for student in students %}
     <tr>
-      <td>Ayesha</td>
-      <td>Math</td>
-      <td>95</td>
-      <td class="topper">Topper 🏆</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.subject }}</td>
+      <td>{{ student.marks }}</td>
+      <td class="{{ 'topper' if 'Topper' in student.status else '' }}">{{ student.status }}</td>
     </tr>
-    <tr>
-      <td>Ali</td>
-      <td>Math</td>
-      <td>88</td>
-      <td>Passed</td>
-    </tr>
-    <tr>
-      <td>Sara</td>
-      <td>Math</td>
-      <td>82</td>
-      <td>Passed</td>
-    </tr>
-    <tr>
-      <td>Hamza</td>
-      <td>Math</td>
-      <td>76</td>
-      <td>Passed</td>
-    </tr>
+    {% endfor %}
   </table>
 </body>
 </html>
